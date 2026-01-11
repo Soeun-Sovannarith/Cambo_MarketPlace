@@ -39,6 +39,45 @@ public class Message {
 
     private LocalDateTime sentAt = LocalDateTime.now();
 
-    // getters and setters
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public User getSender() {
+        return sender;
+    }
+
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
+
+    public ChatRoom getChatRoom() {
+        return chatRoom;
+    }
+
+    public void setChatRoom(ChatRoom chatRoom) {
+        this.chatRoom = chatRoom;
+    }
+
+    public LocalDateTime getSentAt() {
+        return sentAt;
+    }
+
+    public void setSentAt(LocalDateTime sentAt) {
+        this.sentAt = sentAt;
+    }
 }
 

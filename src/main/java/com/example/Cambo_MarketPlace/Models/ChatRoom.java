@@ -36,6 +36,53 @@ public class ChatRoom {
     @OneToMany(mappedBy = "chatRoom", cascade = CascadeType.ALL)
     private List<Message> messages;
 
-    // getters and setters
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public User getBuyer() {
+        return buyer;
+    }
+
+    public void setBuyer(User buyer) {
+        this.buyer = buyer;
+    }
+
+    public User getSeller() {
+        return seller;
+    }
+
+    public void setSeller(User seller) {
+        this.seller = seller;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
 }
 
