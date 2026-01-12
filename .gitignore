@@ -41,3 +41,4 @@ src/main/resources/static/chat-room.html
 src/main/resources/static/chat.html
 src/main/resources/static/index.html
 test-data.sql
+Chat_API.md

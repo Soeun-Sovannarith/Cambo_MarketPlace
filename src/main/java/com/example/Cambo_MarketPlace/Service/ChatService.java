@@ -38,6 +38,11 @@ public class ChatService {
      */
     @Transactional
     public ChatRoom getOrCreateChatRoom(Long productId, Long buyerId, Long sellerId) {
+        // Validation: Buyer and Seller cannot be the same person
+        if (buyerId.equals(sellerId)) {
+            throw new IllegalArgumentException("Buyer and seller cannot be the same person");
+        }
+        
         Optional<ChatRoom> existingRoom = chatRoomRepository
                 .findByProductIdAndBuyerIdAndSellerId(productId, buyerId, sellerId);
         
@@ -58,6 +63,12 @@ public class ChatService {
         }
         if (sellerOpt.isEmpty()) {
             throw new RuntimeException("Seller not found with id: " + sellerId);
+        }
+        
+        // Validation: Ensure the seller is the actual owner of the product
+        Product product = productOpt.get();
+        if (product.getSeller() != null && !product.getSeller().getId().equals(sellerId)) {
+            throw new IllegalArgumentException("Seller ID does not match product owner");
         }
         
         // Create new chat room
