@@ -46,6 +46,12 @@ public class ChatRoomController {
                     .body(Map.of("error", "productId, buyerId, and sellerId are required"));
         }
 
+        // Validation: Buyer and Seller cannot be the same person
+        if (buyerId.equals(sellerId)) {
+            return ResponseEntity.badRequest()
+                    .body(Map.of("error", "You cannot chat with yourself"));
+        }
+
         try {
             ChatRoom chatRoom = chatService.getOrCreateChatRoom(productId, buyerId, sellerId);
             
